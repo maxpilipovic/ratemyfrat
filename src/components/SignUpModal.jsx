@@ -8,7 +8,7 @@ const SignUpModal = ({ isOpen, onClose }) => {
        }
      
        return (
-         <div className="fixed inset-0 bg-opacity-75 flex justify-center items-center">
+         <div className="fixed inset-0 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-4">Sign in with school email</h2>
             <p>With your review, we'll let readers know you're a real student with this badge:</p>

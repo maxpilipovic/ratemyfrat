@@ -8,9 +8,6 @@ function App() {
     <div>
       <Navbar />
       <Home />
-      <div className="text-red-500 text-3xl font-bold">
-      Hello Tailwind!
-    </div>
     </div>
   )
 }
