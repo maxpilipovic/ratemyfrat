@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -16,4 +16,30 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
+
+// --- New Functions for fetching ranked data ---
+
+// Fetch top 5 most popular schools by review count
+export const getPopularSchools = async () => {
+  const schoolsRef = collection(db, 'schools');
+  const q = query(schoolsRef, orderBy('reviewCount', 'desc'), limit(5));
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+// Fetch top 5 most popular frats by review count
+export const getPopularFrats = async () => {
+  const fratsRef = collection(db, 'fraternities');
+  const q = query(fratsRef, orderBy('reviewCount', 'desc'), limit(5));
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+// Fetch top 5 highest-rated frats
+export const getHighestRatedFrats = async () => {
+  const fratsRef = collection(db, 'fraternities');
+  const q = query(fratsRef, orderBy('averageRating', 'desc'), limit(5));
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
 
