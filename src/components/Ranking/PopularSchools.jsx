@@ -8,6 +8,7 @@ const PopularSchools = () => {
   useEffect(() => {
     const fetchSchools = async () => {
       const popularSchools = await getPopularSchools();
+      console.log(popularSchools);
       setSchools(popularSchools);
     };
     fetchSchools();

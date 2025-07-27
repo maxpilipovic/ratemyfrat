@@ -1,5 +1,5 @@
 import React from 'react';
-import hImage from '../../assets/frat-house.jpg';
+import hImage from '../../assets/banner.jpg';
 
 const Search = () => {
   return (
@@ -8,7 +8,7 @@ const Search = () => {
       <img
         src={hImage} // Replace with your image path (e.g., from /public)
         alt="Background"
-        className="w-full h-full object-scale-down"
+        className="w-full h-full object-cover"
       />
 
       {/* Text Overlay */}
