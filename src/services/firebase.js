@@ -17,9 +17,9 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 
-// --- New Functions for fetching ranked data ---
+// --- New Functions for fetching ranked data --- //
 
-// Fetch top 5 most popular schools by review count
+//Fetch top 5 most popular schools by review count
 export const getPopularSchools = async () => {
   const schoolsRef = collection(db, 'schools');
   const q = query(schoolsRef, orderBy('reviewCount', 'desc'), limit(5));
@@ -27,7 +27,7 @@ export const getPopularSchools = async () => {
   return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-// Fetch top 5 most popular frats by review count
+//Fetch top 5 most popular frats by review count
 export const getPopularFrats = async () => {
   const fratsRef = collection(db, 'fraternities');
   const q = query(fratsRef, orderBy('reviewCount', 'desc'), limit(5));
@@ -35,11 +35,20 @@ export const getPopularFrats = async () => {
   return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-// Fetch top 5 highest-rated frats
+//Fetch top 5 highest-rated frats
 export const getHighestRatedFrats = async () => {
   const fratsRef = collection(db, 'fraternities');
   const q = query(fratsRef, orderBy('averageRating', 'desc'), limit(5));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+// Fetch all schoos for search functinality
+export const getAllSchools = async () => {
+  const snapshot = await getDocs(collection(db, 'schools'));
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
 };
 
