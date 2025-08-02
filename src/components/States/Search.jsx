@@ -47,7 +47,7 @@ const Search = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[400px] overflow-hidden">
+    <div className="relative w-full h-[500px] overflow-hidden">
       {/* Background Image */}
       <img src={hImage} alt="Background" className="w-full h-full object-cover" />
 

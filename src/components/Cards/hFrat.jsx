@@ -13,9 +13,6 @@ const HighestRatedCard = ({ name, reviewCount, rating, imageUrl, schoolName }) =
         {schoolName && (
           <p className="text-gray-600 text-sm">School: {schoolName}</p>
         )}
-        {reviewCount !== undefined && (
-          <p className="text-gray-600 text-sm">Reviews: {reviewCount}</p>
-        )}
         <p className="text-gray-600 text-sm">Rating: {rating.toFixed(1)}</p>
       </div>
     </div>
