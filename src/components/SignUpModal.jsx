@@ -8,34 +8,33 @@ const SignUpModal = ({ isOpen, onClose }) => {
        }
      
        return (
-         <div className="fixed inset-0 bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-4">Sign in with school email</h2>
-            <p>With your review, we'll let readers know you're a real student with this badge:</p>
+        <div className="fixed inset-0 shadow-blue-400/40 bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md text-center">
+            <h2 className="text-2xl font-semibold mb-3">Sign in with your school email</h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              With your review, we'll let readers know you're a real student with this badge:
+            </p>
             <img
               src={verifiedStudentBadge}
               alt="Verified Student Badge"
-              className="w-6 h-6 mx-auto my-2"
+              className="w-10 h-10 mx-auto mb-4"
             />
-            
-            <p> Sign in with Google</p>
-            <div className="flex flex-col space-y-4">
-              <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                onClick={handleGoogleLogin}
-              >
-                Login with Google
-              </button>
-              {/* <button
-                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-                // Add your one-time sign-up link logic here
-              >
-                Get One-Time Sign Up Link
-              </button> */}
-            </div>
-           <button
+
+            <button
+              onClick={handleGoogleLogin}
+              className="flex items-center justify-center space-x-3 border border-gray-300 rounded-lg py-2 px-4 w-full hover:shadow-md transition"
+            >
+              <img
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google logo"
+                className="w-5 h-5"
+              />
+              <span className="text-sm font-medium text-gray-700">Continue with Google</span>
+            </button>
+
+            <button
               onClick={onClose}
-              className="mt-4 text-sm text-gray-600 hover:text-gray-800"
+              className="mt-6 text-sm text-gray-500 hover:text-gray-800 transition"
             >
               Close
             </button>
