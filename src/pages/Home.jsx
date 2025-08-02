@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Search from '../components/States/Search';
 import PopularSchools from '../components/Ranking/PopularSchools';
 import PopularFrats from '../components/Ranking/PopularFrats';
@@ -16,7 +15,6 @@ const Home = () => {
             <PopularFrats/>
             <HighestRatedFrats/>
             <ReviewSection/>
-            <Footer/>
         </>
     )
 

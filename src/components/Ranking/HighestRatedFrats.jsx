@@ -25,7 +25,6 @@ const HighestRatedFrats = () => {
                 key={frat.id}
                 name={frat.name}
                 rating={frat.averageRating}
-                reviewCount={frat.reviewCount}
                 schoolName={frat.schoolName}
                 imageUrl={frat.imageUrl || '/default-frat.jpg'}
               />

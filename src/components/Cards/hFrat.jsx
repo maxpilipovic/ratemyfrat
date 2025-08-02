@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HighestRatedCard = ({ name, reviewCount, rating, imageUrl, schoolName }) => {
+const HighestRatedCard = ({ name, rating, imageUrl, schoolName }) => {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <img
