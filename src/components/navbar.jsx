@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SignUpModal from './SignUpModal.jsx';
 import iImage from '../assets/instagram.png';
 import tImage from '../assets/tiktok.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +27,9 @@ const Navbar = () => {
 
               {/* Center section */}
               <div className="w-1/3 flex justify-center">
-                <div className="text-3xl text-center font-bold">RateMyFrat</div>
+                <Link to="/" className="text-3xl text-center font-bold">
+                  RateMyFrat
+                </Link>
               </div>
 
               {/* Right section */}

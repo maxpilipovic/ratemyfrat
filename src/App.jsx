@@ -10,6 +10,7 @@ import ListSchool from './pages/ListSchool';
 import AllSchools from './pages/AllSchools';
 import AddSchool from './pages/AddSchool';
 import About from './pages/About';
+import ListFrat from './pages/ListFrat';
 
 
 function App() {
