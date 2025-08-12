@@ -1,12 +1,25 @@
 import React from 'react';
 import handleGoogleLogin from './Handlers/handleGoogleLogin';
 import verifiedStudentBadge from '../assets/6711626.png';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpModal = ({ isOpen, onClose }) => {
+      const navigate = useNavigate();
+
        if (!isOpen) {
          return null;
        }
-     
+
+       const onSuccess = () => {
+         onClose();
+         alert("Login successful!")
+         navigate("/");
+       };
+
+       const onError = (errorMessage) => {
+         alert(errorMessage);
+       };
+
        return (
         <div className="fixed inset-0 shadow-blue-400/40 bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-50">
           <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md text-center">
@@ -21,7 +34,7 @@ const SignUpModal = ({ isOpen, onClose }) => {
             />
 
             <button
-              onClick={handleGoogleLogin}
+              onClick={() => handleGoogleLogin({ onSuccess, onError })}
               className="flex items-center justify-center space-x-3 border border-gray-300 rounded-lg py-2 px-4 w-full hover:shadow-md transition"
             >
               <img
