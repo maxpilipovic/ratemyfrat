@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import SignUpModal from './SignUpModal.jsx';
 import iImage from '../assets/instagram.png';
 import tImage from '../assets/tiktok.png';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './Authentication/AuthContext.jsx';
+import { auth } from '../services/firebase.js';
 
 const Navbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { currentUser } = useContext(AuthContext);
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
+
+    const handleSignOut = () => {
+        auth.signOut();
+    };
 
     return (
         <>
@@ -34,9 +41,18 @@ const Navbar = () => {
 
               {/* Right section */}
               <div className="w-1/3 flex justify-end">
-               <button onClick={openModal} className=" text-black font-bold py-2 px-4">
-                 Sign In
-                </button>
+                {currentUser ? (
+                  <>
+                    <span className="text-black font-bold py-2 px-4">{currentUser.email}</span>
+                    <button onClick={handleSignOut} className=" text-black font-bold py-2 px-4">
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={openModal} className=" text-black font-bold py-2 px-4">
+                    Sign In
+                  </button>
+                )}
               </div>
             </div>
           </nav>
