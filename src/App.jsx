@@ -22,8 +22,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
-        <Route path="/list-frat" element={<ListFrat />} />
-        <Route path="/list-school" element={<ListSchool />} />
+        <Route path="/list-frat/:id" element={<ListFrat />} />
+        <Route path="/list-school/:id" element={<ListSchool />} />
         <Route path="/schools" element={<AllSchools />} />
         <Route path="/add-school" element={<AddSchool />} />
         <Route path="/about" element={<About />} />

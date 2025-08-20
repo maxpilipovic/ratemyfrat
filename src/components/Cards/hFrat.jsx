@@ -1,8 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const HighestRatedCard = ({ name, rating, imageUrl, schoolName }) => {
+
+const HighestRatedCard = ({ id, name, rating, imageUrl, schoolName }) => {
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/list-frat/${id}`); // navigate to ListFrat page with this frat's id
+  };
+
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <div onClick={handleClick} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <img
         src={imageUrl}
         alt={`${name} house`}

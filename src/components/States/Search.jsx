@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import hImage from '../../assets/banner.jpg';
 import { getAllSchools } from '../../services/firebase.js';
+import ListFrat from '../../pages/ListFrat.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
   const [query, setQuery] = useState(''); //What users types in search bar
@@ -8,6 +10,9 @@ const Search = () => {
   const [filteredSchools, setFilteredSchools] = useState([]); //Filtered schools based on query
   const [showDropdown, setShowDropdown] = useState(false); //Dropdown visabile or not
   const inputRef = useRef(); //Ref to dom for clicks
+
+  //Add USENAVIGATE
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSchools = async () => {
@@ -74,7 +79,7 @@ const Search = () => {
                   <div
                     key={school.id}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer border-b last:border-b-0"
-                    onClick={() => alert(`Navigate to: ${school.name}`)}
+                    onClick={() => navigate(`/list-school/${school.id}`)} //Change to pass params
                   >
                     {school.name}
                   </div>
